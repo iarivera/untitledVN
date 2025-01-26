@@ -10,7 +10,7 @@ define cb = Character("Classmate B")
 define bp = Character("Ball Player")
 define m = Character("Mom")
 
-# Images
+# Character Images
 image basil default:
     "images/basil/maincharacterv2.png"
     zoom 0.3
@@ -26,6 +26,9 @@ image person:
     zoom 0.3
     pos (0.0, 1.0)
 
+# Background images
+image bg black_bg = "images/backgrounds/black_bg.png"
+
 default points = 0
 
 # The game starts here.
@@ -34,6 +37,7 @@ label start:
 
     # Start with black screen
     # Color blue represents inner thoughts
+    scene bg black_bg
     "{color=#A7C7E7}This thing bubbles up inside me.\n
     I don't know how much longer I can keep going like this...{/color}"
 
@@ -198,7 +202,7 @@ label park:
 
 label good_end:
     hide basil default
-    scene bg black
+    scene bg black_bg
     m "Hello my son! How are you doing this evening"
 
     b "I'm doing fine, Mom"
@@ -209,12 +213,13 @@ label good_end:
     b "The thing I have to tell you is that..."
 
     "I am transgender."
-    # End
+    "I let it out, I'm not sure what lies ahead, but at the very least, I'm happy its finally out there"
+    "{color=#FFB6C1}End.{/color}"
     return
 
 label bad_end:
     hide basil default
-    scene bg black
+    scene bg black_bg
     m "Hello my son! How are you doing this evening"
 
     b "I'm doing fine, Mom"
@@ -229,15 +234,15 @@ label bad_end:
     b "{color=#A7C7E7}Like watching a bubble prematurely burst, I
     didn't have a chance to speak my truth."
     b "*sob sob* I'm such a coward, I couldn't even let it out."
-    # End
+    "{color=#FFB6C1}End.{/color}"
     return
 
 label no_answer:
     hide basil default
-    scene bg black
+    scene bg black_bg
     b "{color=#A7C7E7}I couldn't even muster the strength to answer...{/color}"
     b "{color=#A7C7E7}The bubble I envisioned floating freely, never had a
     chance to float freely...{/color}"
     b "I'm sorry..."
-    # End
+    "{color=#FFB6C1}End.{/color}"
     return
