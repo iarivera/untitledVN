@@ -28,6 +28,9 @@ image person:
 
 # Background images
 image bg black_bg = "images/backgrounds/black_bg.png"
+image bg classroom = "images/backgrounds/background_classroom.png" 
+image bg bedroom = "images/backgrounds/background_bedroom.png"
+image bg park = "images/backgrounds/background_park.png"
 
 default points = 0
 
@@ -210,9 +213,9 @@ label good_end:
     m "We barely hear from you, are you eating?"
     
     b "I am, I just have a lot on my mind"
-    b "The thing I have to tell you is that..."
+    b "The thing I have to tell you is, i-is that..."
 
-    "I am transgender."
+    "I'm trans."
     "I let it out, I'm not sure what lies ahead, but at the very least, I'm happy its finally out there"
     "{color=#FFB6C1}End.{/color}"
     return
