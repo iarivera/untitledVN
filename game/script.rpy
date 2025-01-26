@@ -1,5 +1,5 @@
-﻿# The script of the game goes in this file.
-
+﻿# Still kind of insane for essentially making this how 
+# I come out to a wide group
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
@@ -41,7 +41,7 @@ label start:
     than that."
     call classtime
 
-    # These display lines of dialogue.
+    scene bg bedroom
     b "{color=#A7C7E7}Okay, maybe not that far back! 
     At the very least, I've known that I'm a bit of a pushover,
     a doormat even. Hell, I was known as crybaby.{/color}"
@@ -76,6 +76,7 @@ label start:
 
     call park
     
+    scene bg bedroom
     b "{color=#A7C7E7}I'll spare you the details. After that thought,
     I began castrophizing the ramifications of speaking my truth,
     as well as the ramifications of running from my truth."
@@ -83,6 +84,17 @@ label start:
     b "{color=#A7C7E7}It eventually became too much for me. And so,
     I retreated back a place that is all too familiar to me. This very room."
 
+    b "{color=#A7C7E7}I'm know that my phone is gonna ring any second... I'm scared"
+
+    menu motivation:
+        "I'll have to try":
+            $points = points + 2
+            b "I'll have to try, not for anyone, but for me. It has to be for me, or
+            saying it will be meaningless."
+        "I'm not sure":
+            $points = points + 1
+            b "I'm really not sure how this will go, but I really won't know unless
+            I try."
 
     "{i}Ring Ring Ring Ring{/i}"
 
@@ -173,7 +185,7 @@ label park:
     return
 
 label good_end:
-    # black scree
+    scene bg black
     m "Hello my son! How are you doing this evening"
 
     b "I'm doing fine, Mom"
@@ -182,17 +194,35 @@ label good_end:
     
     b "I am, I just have a lot on my mind"
     b "The thing I have to tell you is that..."
+
+    "I am transgender."
+    # End
     return
 
 label bad_end:
-    # black scree
-    b "It's nothing, mom. Don't worry about it"
+    scene bg black
+    m "Hello my son! How are you doing this evening"
+
+    b "I'm doing fine, Mom"
+
+    m "We barely hear from you, are you eating?"
+    
+    b "I am, I just... I just..."
+    b "It's nothing, mom, it's nothing. I'm fine."
+
+    b "{color=#A7C7E7}After a conversation catching up about
+    stuff that I've missed, it ended just like that"
+    b "{color=#A7C7E7}Like watching a bubble prematurely burst, I
+    didn't have a chance to speak my truth."
+    b "*sob sob* I'm such a coward, I couldn't even let it out."
+    # End
     return
 
 label no_answer:
-    # black scree
+    scene bg black
     b "{color=#A7C7E7}I couldn't even muster the strength to answer...{/color}"
     b "{color=#A7C7E7}The bubble I envisioned floating freely, never had a
     chance to float freely...{/color}"
     b "I'm sorry..."
+    # End
     return
