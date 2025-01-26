@@ -3,11 +3,28 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
+# Characters
 define b = Character("Basil")
 define ca = Character("Classmate A")
 define cb = Character("Classmate B")
 define bp = Character("Ball Player")
 define m = Character("Mom")
+
+# Images
+image basil default:
+    "images/basil/maincharacterv2.png"
+    zoom 0.3
+    pos (0.0, 1.0)
+
+image basil young:
+    "images/basil/childcharacterv2.png"
+    zoom 0.3
+    pos (0.0, 1.0)
+
+image person: 
+    "images/sillouettecharacter_masculine.png"
+    zoom 0.3
+    pos (0.0, 1.0)
 
 default points = 0
 
@@ -23,6 +40,7 @@ label start:
     # Light flicker sound effect goes here
     scene bg bedroom
 
+    show basil default at center
     "???" "Man, I am {i}so TIRED{/i}!"
 
 
@@ -31,17 +49,15 @@ label start:
     \nin which an import phone call awaits{/color}"
 
     b "Mom's prolly gonna call any minute. I'm not sure if I can do this."
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
 
-    #show b happy
-    "{color=#A7C7E7}I've been feeling like this about myself at least the past year...
+    b "{color=#A7C7E7}I've been feeling like this about myself at least the past year...
     maybe longer.\nNow that I think it, this hight have been a problem for even longer
     than that."
+
     call classtime
 
     scene bg bedroom
+    show basil default at center
     b "{color=#A7C7E7}Okay, maybe not that far back! 
     At the very least, I've known that I'm a bit of a pushover,
     a doormat even. Hell, I was known as crybaby.{/color}"
@@ -77,6 +93,7 @@ label start:
     call park
     
     scene bg bedroom
+    show basil default at center
     b "{color=#A7C7E7}I'll spare you the details. After that thought,
     I began castrophizing the ramifications of speaking my truth,
     as well as the ramifications of running from my truth."
@@ -111,6 +128,7 @@ label classtime:
     # background is called here
     # i would assume transition, if made is before call statement
     scene bg classroom
+    show basil young at left
     
     ca "Social Studies is so {i}BORING{/i}"
     menu classmate_question:
@@ -128,17 +146,9 @@ label classtime:
     b "..."
     return
         
-#label class_cont:
-    #ca "Of course you'd saying that! You're such a teacher's pet."
-    #cb "Yeah, teacher's pet"
-    #b "I just like learning stuff..."
-    #ca "Yeah right, you'll probably tell the teacher we think class is boring."
-    #b "..."
-    #transition back to room
-    #jump room1
-
 label park:
     scene bg park
+    show basil default at left
     b "It's pretty nice out today, I needed this. Getting away from there,
     away from there. Even if is for a few hours."
 
@@ -146,6 +156,7 @@ label park:
 
     b "Ow! A ball?"
 
+    show person at right
     bp "Hey bro, can you pass me the ball?"
 
     menu conversation:
@@ -165,6 +176,7 @@ label park:
         "Pass ball":
             b "Here."
     "The passerby gets the ball back"
+    hide person
 
     b "{color=#A7C7E7}And now I have to think about this.
     Being perceived like that, I've been trying to not be seen
@@ -185,6 +197,7 @@ label park:
     return
 
 label good_end:
+    hide basil default
     scene bg black
     m "Hello my son! How are you doing this evening"
 
@@ -200,6 +213,7 @@ label good_end:
     return
 
 label bad_end:
+    hide basil default
     scene bg black
     m "Hello my son! How are you doing this evening"
 
@@ -219,6 +233,7 @@ label bad_end:
     return
 
 label no_answer:
+    hide basil default
     scene bg black
     b "{color=#A7C7E7}I couldn't even muster the strength to answer...{/color}"
     b "{color=#A7C7E7}The bubble I envisioned floating freely, never had a
